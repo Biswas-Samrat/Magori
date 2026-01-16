@@ -7,6 +7,7 @@ import historySmall from '../assets/history/small_pik.png';
 import welcomeWaffle from '../assets/wellcome/toasted-waffles-5681988_1920.jpg';
 import welcomeSteak from '../assets/wellcome/steak-2210465_1920.jpg';
 import welcomeBread from '../assets/wellcome/pan-de-jamon-5941368_1920.jpg';
+import heroMobile from '../assets/hero_only for mobail.png';
 
 const Home = () => {
     return (
@@ -14,32 +15,39 @@ const Home = () => {
             <SEOHead title="Home" />
 
             {/* HERO SECTION */}
-            <section className="relative h-screen flex items-center justify-center overflow-hidden">
+            <section className="relative h-screen overflow-hidden">
                 {/* Background Image with Overlay */}
                 <div className="absolute inset-0 z-0">
+                    {/* Mobile Hero Image */}
+                    <img
+                        src={heroMobile}
+                        alt="Fire Cooking"
+                        className="w-full h-full object-cover object-top md:hidden"
+                    />
+                    {/* Desktop Hero Image */}
                     <img
                         src="/hero-bg.png"
                         alt="Fire Cooking"
-                        className="w-full h-full object-cover"
+                        className="hidden md:block w-full h-full object-cover object-center"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/60 to-charcoal/30"></div>
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-charcoal/30 to-charcoal md:bg-gradient-to-t md:from-charcoal md:via-charcoal/60 md:to-charcoal/30"></div>
                 </div>
 
-                <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-                    <p className="text-fire-ember font-medium tracking-[0.2em] mb-4 animate-fade-in-up">WELCOME TO MAGORI</p>
+                <div className="absolute top-[45%] md:top-1/2 left-0 right-0 md:transform md:-translate-y-1/2 z-10 text-center px-4 max-w-4xl mx-auto">
+                    <p className="text-amber-450 font-medium tracking-[0.2em] mb-4 animate-fade-in-up">WELCOME TO MAGORI</p>
                     <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-cream-white mb-6 leading-tight animate-fade-in-up delay-100">
                         Fire. Flavor. <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-fire-ember">Spain.</span>
                     </h1>
-                    <p className="text-xl md:text-2xl text-gray-200 mb-10 font-light tracking-wide animate-fade-in-up delay-200">
+                    <p className="text-lg md:text-2xl text-gray-200 mb-8 md:mb-10 font-light tracking-wide animate-fade-in-up delay-200">
                         Modern Spanish Gastrobar · Tapas · A la Brasa
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up delay-300">
-                        <Button to="/menu" variant="primary">View Menu</Button>
-                        <Button to="/contact" variant="outline">Reserve Table</Button>
+                    <div className="flex gap-4 justify-center animate-fade-in-up delay-300">
+                        <Button to="/menu" variant="primary" className="px-6 py-2 text-sm md:text-base">View Menu</Button>
+                        <Button to="/contact" variant="outline" className="px-6 py-2 text-sm md:text-base">Reserve Table</Button>
                     </div>
                 </div>
 
-                <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+                <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce hidden md:block">
                     <div className="w-[1px] h-16 bg-gradient-to-b from-transparent to-white/50"></div>
                 </div>
             </section>
